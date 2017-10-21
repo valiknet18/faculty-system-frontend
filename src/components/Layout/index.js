@@ -1,28 +1,36 @@
 import React from 'react';
-import Drawer from 'material-ui/Drawer';
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
 import Menu from '../Menu';
 
 import Router from '../Router';
-import CoursesLayout from '../Courses/Item/Layout';
 
 import './main.css';
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
-export default class Layout extends React.Component {
+import { loadUser } from '../../services/actions/auth';
+
+function mapStateToProps(state) {
+    return {
+        profile: state.auth
+    };
+}
+
+class Layout extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            isAuth: true,
-        }
+        let { dispatch } = this.props;
+
+        dispatch(loadUser());
     }
 
     render() {
-        let { isAuth } = this.state;
+        let { profile: { profile } } = this.props;
 
-        let isAuthClass = (isAuth) ? 'is-auth' : '';
+        let isAuthClass = (profile) ? 'is-auth' : '';
 
         return (
             <div>
@@ -35,22 +43,15 @@ export default class Layout extends React.Component {
                         </Toolbar>
                     </AppBar>
                     {
-                        (isAuth) ?
-                            <Drawer
-                                type="permanent"
-                                classes={{
-                                    paper: 'drawer',
-                                }}
-                            >
-                                <Menu/>
-                            </Drawer>
-                        : ''
+                        (profile) ? <Menu {...this.props} /> : ''
                     }
                     <main className={`content ${isAuthClass}`}>
-                        <Router/>
+                        <Router auth={profile} />
                     </main>
                 </div>
             </div>
         );
     }
 }
+
+export default withRouter(connect(mapStateToProps)(Layout));

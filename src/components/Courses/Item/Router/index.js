@@ -8,9 +8,8 @@ import Analytics from '../Analytics/Layout';
 export default class Router extends React.Component {
     render() {
         return [
-            <Redirect from="/course" to="/courses/course/dashboard" />,
-            <Route exact path="/courses/course/dashboard" component={Dashboard} />,
-            <Route exact path="/courses/course/analytics" component={Analytics} />
+            <Route path="/courses/course/dashboard" component={Dashboard} key="dashboard" />,
+            <Route path="/courses/course/analytics" component={Analytics} key="analytics" />
         ];
     }
 }

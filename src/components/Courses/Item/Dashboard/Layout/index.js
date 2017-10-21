@@ -20,11 +20,11 @@ export default class Item extends React.Component {
 
     render() {
         return [
-            <div className="dashboard-header">
+            <div className="dashboard-header" key="header">
                 <h3>Дошка з задачами</h3>
             </div>,
-            <Filter/>,
-            <Table />
+            <Filter key="filters" />,
+            <Table key="table" />
         ];
     }
 }

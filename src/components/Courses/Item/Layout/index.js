@@ -31,7 +31,7 @@ export default class Layout extends React.Component {
                 onChange={this.handleChange.bind(this)}
             >
                 <BottomNavigationButton label="Дошка" value="dashboard" icon={<LibraryBooksIcon />} />
-                <BottomNavigationButton label="Аналітіка" value="analytics" icon={<PieChartIcon />} />
+                {/*<BottomNavigationButton label="Аналітіка" value="analytics" icon={<PieChartIcon />} />*/}
                 <BottomNavigationButton label="Студенти" value="students" icon={<PersonIcon />} />
                 <BottomNavigationButton label="Налаштування" value="settings" icon={<SettingsIcon />} />
             </BottomNavigation>

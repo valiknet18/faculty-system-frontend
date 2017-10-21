@@ -1,0 +1,17 @@
+.content {
+  .settings-layout {
+    min-width: 300px;
+    width: 35%;
+    margin: 50px auto;
+    padding: 30px;
+    text-align: center;
+
+    .form-group {
+      margin: 20px 0;
+
+      > div {
+        width: 100%;
+      }
+    }
+  }
+}
