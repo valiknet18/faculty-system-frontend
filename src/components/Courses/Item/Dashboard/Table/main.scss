@@ -1,0 +1,39 @@
+.dashboard-header {
+  text-align: center;
+}
+
+.dashboard-students {
+  padding: 5px;
+
+  .filter-select {
+    margin-right: 15px;
+
+    .student-select, .theme-select {
+      max-width: 30%;
+      min-width: 300px;
+    }
+  }
+}
+
+.dashboard {
+  display: flex;
+  height: 100%;
+
+  .column {
+    display: flex;
+    flex: 1 1;
+    flex-direction: column;
+    margin: 5px 5px;
+    padding-top: 10px;
+    background: rgba(239, 239, 239, 0.42);;
+
+    &> .header {
+      text-align: center;
+      font-weight: 800;
+    }
+
+    .tasks {
+
+    }
+  }
+}

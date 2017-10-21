@@ -1,0 +1,12 @@
+.content {
+  margin-bottom: 56px; }
+  .content .layout {
+    flex: 1 1;
+    margin: 30px;
+    padding: 10px;
+    min-height: 500px; }
+  .content .admin-bottom-navigation {
+    bottom: 0;
+    position: fixed;
+    width: calc(100% - 270px);
+    background-color: #efefef; }

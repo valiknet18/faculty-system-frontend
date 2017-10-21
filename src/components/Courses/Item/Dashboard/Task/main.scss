@@ -1,0 +1,24 @@
+
+.task-item {
+  margin: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  background: #fff;
+
+  .header {
+
+  }
+
+  .actions {
+    display: flex;
+
+    .full-name {
+      flex: 1 1;
+    }
+
+    .full-name, .link {
+      font-size: 12px;
+      color: #009688;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+@import "../../../styles/variables.scss";
+
+.content {
+  margin-bottom: $bottom-bar;
+
+  .admin-layout {
+    flex: 1 1;
+    margin: 30px;
+    padding: 10px;
+    min-height: 500px;
+  }
+
+  .admin-bottom-navigation {
+    bottom: 0;
+    position: fixed;
+    width: calc(100% - #{$drawer-bar-width});
+    background-color: #efefef;
+  }
+}

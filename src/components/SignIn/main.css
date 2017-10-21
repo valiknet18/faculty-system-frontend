@@ -1,0 +1,10 @@
+.sign-in {
+  min-width: 300px;
+  width: 35%;
+  margin: 200px auto;
+  padding: 30px;
+  text-align: center; }
+  .sign-in .form-group {
+    margin: 20px 0; }
+    .sign-in .form-group > div {
+      width: 100%; }

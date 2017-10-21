@@ -1,0 +1,27 @@
+@import "../../styles/variables.scss";
+
+.main-layout {
+  .app-bar {
+    position: absolute;
+    margin-left: $drawer-bar-width;
+    width: 100%;
+
+    &.is-auth {
+      width: calc(100% - #{$drawer-bar-width});
+    }
+  }
+
+  .drawer {
+    width: $drawer-bar-width;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+
+    &.is-auth {
+      margin-left: $drawer-bar-width;
+      margin-top: $app-bar-height;
+    }
+  }
+}

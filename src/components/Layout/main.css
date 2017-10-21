@@ -1,0 +1,16 @@
+.main-layout .app-bar {
+  position: absolute;
+  margin-left: 270px;
+  width: 100%; }
+  .main-layout .app-bar.is-auth {
+    width: calc(100% - 270px); }
+
+.main-layout .drawer {
+  width: 270px; }
+
+.main-layout .content {
+  display: flex;
+  flex-direction: column; }
+  .main-layout .content.is-auth {
+    margin-left: 270px;
+    margin-top: 64px; }

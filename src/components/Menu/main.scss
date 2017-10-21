@@ -1,0 +1,32 @@
+.main-layout {
+  .profile-area {
+    flex: 1 0;
+    background: #009688;
+    display: flex;
+    flex-direction: column;
+
+    .avatar {
+      align-self: center;
+      margin: 10px auto;
+
+      > div {
+        width: 80px;
+        height: 80px;
+      }
+    }
+
+    .full-name {
+      color: #fff;
+      align-self: flex-end;
+      margin: 15px auto;
+    }
+  }
+
+  .upper-menu-links {
+    flex: 3 0;
+  }
+
+  .lower-menu-links {
+    flex: 0 0;
+  }
+}
