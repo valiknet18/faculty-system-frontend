@@ -1,5 +1,6 @@
 import React from 'react';
-
+import { DragDropContextProvider } from 'react-dnd'
+import HTML5Backend from 'react-dnd-html5-backend'
 // import './main.css';
 
 import Table from "../Table";
@@ -8,15 +9,7 @@ import Filter from "../Filter/Layout";
 export default class Item extends React.Component {
     constructor(props) {
         super(props);
-
-        this.state = {
-            name: [],
-        }
     }
-
-    handleChange = event => {
-        this.setState({ name: event.target.value });
-    };
 
     render() {
         return [
@@ -24,7 +17,9 @@ export default class Item extends React.Component {
                 <h3>Дошка з задачами</h3>
             </div>,
             <Filter key="filters" />,
-            <Table key="table" />
+            <DragDropContextProvider backend={HTML5Backend}>
+                <Table key="table" />
+            </DragDropContextProvider>
         ];
     }
 }

@@ -1,0 +1,14 @@
+.column {
+  display: flex;
+  flex: 1 1;
+  flex-direction: column;
+  margin: 5px 5px;
+  padding-top: 10px;
+  background: rgba(239, 239, 239, 0.42); }
+  .column.dragged {
+    background: #858585; }
+  .column > .header {
+    text-align: center;
+    font-weight: 800; }
+  .column .tasks {
+    height: 100%; }

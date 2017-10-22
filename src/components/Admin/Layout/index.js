@@ -2,29 +2,34 @@ import React from 'react';
 
 import Paper from 'material-ui/Paper';
 import BottomNavigation, { BottomNavigationButton } from 'material-ui/BottomNavigation';
-import RestoreIcon from 'material-ui-icons/Restore';
-import FavoriteIcon from 'material-ui-icons/Favorite';
-import LocationOnIcon from 'material-ui-icons/LocationOn';
-
-import Dashboard from '../../Courses/Item/Dashboard/Table/index';
+import DescriptionIcon from 'material-ui-icons/Description';
+import PeopleIcon from 'material-ui-icons/People';
+import LibraryBooksIcon from 'material-ui-icons/LibraryBooks';
+import Router from '../Router';
 
 import './main.css';
 
 export default class Layout extends React.Component {
+    handleChange(event, value) {
+        this.props.history.push(
+            this.props.match.path + "/" + value
+        );
+    }
+
     render() {
         return [
-            <Paper className="admin-layout">
-                <Dashboard/>
+            <Paper className="layout admin-layout">
+                <Router />
             </Paper>,
             <BottomNavigation
                 value="hello"
                 showLabels
                 className="admin-bottom-navigation"
+                onChange={this.handleChange.bind(this)}
             >
-                <BottomNavigationButton label="Дошка" icon={<RestoreIcon />} />
-                <BottomNavigationButton label="Аналітіка" icon={<FavoriteIcon />} />
-                <BottomNavigationButton label="Студенти" icon={<FavoriteIcon />} />
-                <BottomNavigationButton label="Налаштування" icon={<FavoriteIcon />} />
+                <BottomNavigationButton label="Користувачі" value="users" icon={<PeopleIcon />} />
+                <BottomNavigationButton label="Предмети" value="subjects" icon={<LibraryBooksIcon />} />
+                <BottomNavigationButton label="Курси" value="courses" icon={<DescriptionIcon />} />
             </BottomNavigation>
         ];
     }

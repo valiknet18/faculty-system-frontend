@@ -3,14 +3,26 @@ import * as React from "react";
 import Paper from "material-ui/Paper";
 import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
 import {Link} from 'react-router-dom';
+import {connect} from "react-redux";
+import { getCourses } from "../../../../services/actions/courses";
 
 import "./main.css";
 
-export default class Layout extends React.Component {
+class Layout extends React.Component {
+    constructor(props) {
+        super(props);
+
+        let { dispatch } = this.props;
+
+        dispatch(getCourses());
+    }
+
     render() {
         let data = [
             {id: 1, subject: 'OOP', teacher: 'Гребенович Ю. Є.', group: 'КЕ-12'}
         ];
+
+        let { courses: { courses } } = this.props;
 
         return (
             <Paper className="layout courses-layout">
@@ -24,7 +36,7 @@ export default class Layout extends React.Component {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {data.map(n => {
+                        {courses.map(n => {
                             return (
                                 <TableRow key={n.id} className="item">
                                     <TableCell>{n.subject}</TableCell>
@@ -42,3 +54,13 @@ export default class Layout extends React.Component {
         );
     }
 }
+
+function mapStateToProps(state) {
+    return {
+        courses: state.courses
+    };
+}
+
+Layout = connect(mapStateToProps)(Layout);
+
+export default Layout;

@@ -12,13 +12,3 @@
 .dashboard {
   display: flex;
   height: 100%; }
-  .dashboard .column {
-    display: flex;
-    flex: 1 1;
-    flex-direction: column;
-    margin: 5px 5px;
-    padding-top: 10px;
-    background: rgba(239, 239, 239, 0.42); }
-    .dashboard .column > .header {
-      text-align: center;
-      font-weight: 800; }

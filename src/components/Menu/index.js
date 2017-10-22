@@ -4,6 +4,7 @@ import DraftsIcon from 'material-ui-icons/Drafts';
 import ExitToApp from 'material-ui-icons/ExitToApp';
 import Settings from 'material-ui-icons/Settings';
 import AccountBoxIcon from 'material-ui-icons/AccountBox';
+import LockIcon from 'material-ui-icons/Lock';
 import Avatar from 'material-ui/Avatar';
 import Drawer from 'material-ui/Drawer';
 
@@ -38,6 +39,12 @@ export default class Menu extends React.Component {
                             <DraftsIcon />
                         </ListItemIcon>
                         <ListItemText primary="Предмети" />
+                    </ListItem>
+                    <ListItem button component={Link} to="/admin">
+                        <ListItemIcon>
+                            <LockIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Адміністратівна зона" />
                     </ListItem>
                 </List>
                 <List className="lower-menu-links">

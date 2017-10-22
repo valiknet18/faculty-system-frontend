@@ -1,0 +1,13 @@
+.admin-dashboard {
+  display: flex;
+
+  .item {
+    flex: 1 1;
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #efefef;
+    margin: 10px;
+    text-decoration: none;
+    color: #000;
+  }
+}

@@ -1,5 +1,7 @@
-import authParameters from './auth';
+import authEndpoints from './auth';
+import coursesEndpoints from './courses';
 
 export default {
-    auth: authParameters
+    auth: authEndpoints,
+    courses: coursesEndpoints,
 };

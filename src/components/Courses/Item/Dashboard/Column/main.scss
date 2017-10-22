@@ -1,0 +1,21 @@
+.column {
+  display: flex;
+  flex: 1 1;
+  flex-direction: column;
+  margin: 5px 5px;
+  padding-top: 10px;
+  background: rgba(239, 239, 239, 0.42);
+
+  &.dragged {
+    background: rgba(133, 133, 133, 1);
+  }
+
+  &> .header {
+    text-align: center;
+    font-weight: 800;
+  }
+
+  .tasks {
+    height: 100%;
+  }
+}
