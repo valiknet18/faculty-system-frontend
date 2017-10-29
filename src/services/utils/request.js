@@ -5,7 +5,7 @@ class Request {
     token;
 
     defaultHeaders = {
-        'Content-Type': 'application/json'
+        'Content-type': 'application/json'
     };
 
     getAuthHeaders() {
@@ -42,6 +42,8 @@ class Request {
 
     async post(endpoint, options = {}) {
         options = this.getOptions('POST', options);
+
+        console.log(options);
 
         return await fetch(endpoint, options);
     }

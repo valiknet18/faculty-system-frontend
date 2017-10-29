@@ -5,7 +5,7 @@ import {
 
 let initialState = {
     courses: [],
-    waitingForCourses: false
+    waitingForSubjects: false
 };
 
 export default function courses(state = initialState, action) {

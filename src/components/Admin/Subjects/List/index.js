@@ -8,23 +8,62 @@ import EditIcon from 'material-ui-icons/Edit';
 import DescriptionIcon from 'material-ui-icons/Description';
 import Tooltip from 'material-ui/Tooltip';
 import { Link } from 'react-router-dom';
+import { getSubjects } from '../../../../services/actions/admin/subjects'
 
-export default class List extends React.Component {
+import { connect } from 'react-redux';
+import {CircularProgress} from "../../../../../node_modules/material-ui/Progress/index";
+
+export class List extends React.Component {
+    constructor(props) {
+        super(props);
+
+        let { dispatch } = this.props;
+
+        dispatch(getSubjects());
+    }
+
     render() {
-        let subjects = [
-            {
-                id: 1,
-                themesCount: 1,
-                tasksCount: 1,
-                name: 'Hello'
-            },
-            {
-                id: 2,
-                themesCount: 2,
-                tasksCount: 2,
-                name: 'Hello 2'
-            },
-        ];
+        let { subjects, waitingForSubjects  } = this.props;
+        let rowsWithSubjects;
+
+        if (subjects.length > 0) {
+            rowsWithSubjects = subjects.map(n => {
+                return (
+                    <TableRow key={n.id}>
+                        <TableCell>{n.name}</TableCell>
+                        <TableCell number>{1}</TableCell>
+                        <TableCell number>{1}</TableCell>
+                        <TableCell>
+                            <div>
+                                <Tooltip title="Список тем" placement="bottom">
+                                    <Link to={`/admin/subjects/` + n.id + `/themes`}>
+                                        <IconButton aria-label="Remove">
+                                            <DescriptionIcon />
+                                        </IconButton>
+                                    </Link>
+                                </Tooltip>
+                                <Tooltip title="Редагувати предмет" placement="bottom">
+                                    <IconButton aria-label="Edit">
+                                        <EditIcon />
+                                    </IconButton>
+                                </Tooltip>
+                                <Tooltip title="Видалити предмет" placement="bottom">
+                                    <IconButton aria-label="Remove">
+                                        <DeleteIcon />
+                                    </IconButton>
+                                </Tooltip>
+                            </div>
+                        </TableCell>
+                    </TableRow>
+                );
+            })
+        } else {
+            rowsWithSubjects = (
+                <TableRow className="empty-rows">
+                    <p>На данний момент в цій темі немає ні одної задачі</p>
+                </TableRow>
+            );
+        }
 
         return (
             <div>
@@ -48,36 +87,7 @@ export default class List extends React.Component {
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {subjects.map(n => {
-                                return (
-                                    <TableRow key={n.id}>
-                                        <TableCell>{n.name}</TableCell>
-                                        <TableCell number>{n.themesCount}</TableCell>
-                                        <TableCell number>{n.tasksCount}</TableCell>
-                                        <TableCell>
-                                            <div>
-                                                <Tooltip title="Список тем" placement="bottom">
-                                                    <Link to="/admin/subjects/subject/themes">
-                                                        <IconButton aria-label="Remove">
-                                                            <DescriptionIcon />
-                                                        </IconButton>
-                                                    </Link>
-                                                </Tooltip>
-                                                <Tooltip title="Редагувати предмет" placement="bottom">
-                                                    <IconButton aria-label="Edit">
-                                                        <EditIcon />
-                                                    </IconButton>
-                                                </Tooltip>
-                                                <Tooltip title="Видалити предмет" placement="bottom">
-                                                    <IconButton aria-label="Remove">
-                                                        <DeleteIcon />
-                                                    </IconButton>
-                                                </Tooltip>
-                                            </div>
-                                        </TableCell>
-                                    </TableRow>
-                                );
-                            })}
+                            { (waitingForSubjects) ? <CircularProgress thickness={7} /> : rowsWithSubjects }
                         </TableBody>
                     </Table>
                 </div>
@@ -85,3 +95,13 @@ export default class List extends React.Component {
         );
     }
 }
+
+
+function mapStateToProps({ adminSubjects }) {
+    return {
+        subjects: adminSubjects.subjects,
+        waitingForSubjects: adminSubjects.waitingForSubjects,
+    }
+}
+
+export default connect(mapStateToProps)(List);

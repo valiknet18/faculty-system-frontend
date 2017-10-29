@@ -1,0 +1,3 @@
+export const GET_COURSES = 'GET COURSES';
+export const WAITING_FOR_COURSES = 'WAITING FOR COURSES';
+export const CREATE_COURSE = 'CREATE COURSE';

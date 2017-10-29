@@ -57,7 +57,7 @@ class Layout extends React.Component {
 
 function mapStateToProps(state) {
     return {
-        courses: state.courses
+        courses: state.subjects
     };
 }
 

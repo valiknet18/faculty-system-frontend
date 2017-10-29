@@ -1,8 +1,9 @@
 .admin-dashboard {
   display: flex;
+  flex-wrap: wrap;
 
   .item {
-    flex: 1 1;
+    flex: 1 1 40%;
     padding: 40px 20px;
     text-align: center;
     background-color: #efefef;

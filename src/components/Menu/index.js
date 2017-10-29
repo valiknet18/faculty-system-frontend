@@ -28,7 +28,7 @@ export default class Menu extends React.Component {
                     <span className="full-name">Гриневич Валентин (студент)</span>
                 </div>
                 <List className="upper-menu-links">
-                    <ListItem button>
+                    <ListItem button component={Link} to="/profile">
                         <ListItemIcon>
                             <AccountBoxIcon />
                         </ListItemIcon>

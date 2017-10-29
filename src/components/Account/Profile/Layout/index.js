@@ -8,7 +8,7 @@ export default class Layout extends React.Component {
     render() {
         return (
             <Paper className="layout">
-                <Dashboard/>
+                Profile
             </Paper>
         );
     }

@@ -9,23 +9,52 @@ import DescriptionIcon from 'material-ui-icons/Description';
 import Tooltip from 'material-ui/Tooltip';
 
 import './main.css';
+import {connect} from "react-redux";
+import {getTasks} from "../../../../../../services/actions/admin/subjects";
 
-export default class Layout extends React.Component {
+export class Layout extends React.Component {
+    constructor(props) {
+        super(props);
+
+        let { dispatch, match: { params: { subject, theme } } } = props;
+
+        dispatch(getTasks(subject, theme));
+    }
+
     render() {
-        let subjects = [
-            {
-                id: 1,
-                themesCount: 1,
-                tasksCount: 1,
-                name: 'Hello'
-            },
-            {
-                id: 2,
-                themesCount: 2,
-                tasksCount: 2,
-                name: 'Hello 2'
-            },
-        ];
+        let { tasks } = this.props;
+        let rowsWithTasks;
+
+        if (tasks.length > 0) {
+            rowsWithTasks = tasks.map(n => {
+                return (
+                    <TableRow key={n.id}>
+                        <TableCell>{n.title}</TableCell>
+                        <TableCell>{n.content}</TableCell>
+                        <TableCell>
+                            <div>
+                                <Tooltip title="Редагувати задачу" placement="bottom">
+                                    <IconButton aria-label="Edit">
+                                        <EditIcon />
+                                    </IconButton>
+                                </Tooltip>
+                                <Tooltip title="Видалити задачу" placement="bottom">
+                                    <IconButton aria-label="Remove">
+                                        <DeleteIcon />
+                                    </IconButton>
+                                </Tooltip>
+                            </div>
+                        </TableCell>
+                    </TableRow>
+                );
+            })
+        } else {
+            rowsWithTasks = (
+                <TableRow className="empty-rows">
+                    <p>На данний момент в цій темі немає ні одної задачі</p>
+                </TableRow>
+            );
+        }
 
         return (
             <div>
@@ -40,32 +69,13 @@ export default class Layout extends React.Component {
                     <Table>
                         <TableHead>
                             <TableRow>
+                                <TableCell>Назва задачі</TableCell>
                                 <TableCell>Опич задачі</TableCell>
                                 <TableCell />
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {subjects.map(n => {
-                                return (
-                                    <TableRow key={n.id}>
-                                        <TableCell>{n.name}</TableCell>
-                                        <TableCell>
-                                            <div>
-                                                <Tooltip title="Редагувати задачу" placement="bottom">
-                                                    <IconButton aria-label="Edit">
-                                                        <EditIcon />
-                                                    </IconButton>
-                                                </Tooltip>
-                                                <Tooltip title="Видалити задачу" placement="bottom">
-                                                    <IconButton aria-label="Remove">
-                                                        <DeleteIcon />
-                                                    </IconButton>
-                                                </Tooltip>
-                                            </div>
-                                        </TableCell>
-                                    </TableRow>
-                                );
-                            })}
+                            { rowsWithTasks }
                         </TableBody>
                     </Table>
                 </div>
@@ -73,3 +83,11 @@ export default class Layout extends React.Component {
         );
     }
 }
+
+function mapStateToProps({ adminSubjects }) {
+    return {
+        tasks: adminSubjects.tasks
+    }
+}
+
+export default connect(mapStateToProps)(Layout);

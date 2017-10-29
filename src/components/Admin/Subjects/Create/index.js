@@ -3,10 +3,14 @@ import * as React from "react";
 import SubjectForm from '../Form';
 
 import './main.css';
+import {connect} from "react-redux";
+import {createSubject} from "../../../../services/actions/admin/subjects";
 
-export default class Create extends React.Component {
+class Create extends React.Component {
     async processForm(form) {
+        let { dispatch } = this.props;
 
+        dispatch(createSubject(form));
     }
 
     render() {
@@ -21,3 +25,9 @@ export default class Create extends React.Component {
         );
     }
 }
+
+function mapStateToProps(state) {
+    return {}
+}
+
+export default connect(mapStateToProps)(Create);

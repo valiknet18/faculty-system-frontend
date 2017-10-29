@@ -1,0 +1,3 @@
+export const GET_GROUPS = 'GET GROUPS';
+export const WAITING_FOR_GROUPS = 'WAITING FOR GROUPS';
+export const CREATE_GROUP = 'CREATE GROUP';

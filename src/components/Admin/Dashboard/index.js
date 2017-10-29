@@ -2,6 +2,7 @@ import React from 'react';
 
 import DescriptionIcon from 'material-ui-icons/Description';
 import PeopleIcon from 'material-ui-icons/People';
+import GroupIcon from 'material-ui-icons/Group';
 import LibraryBooksIcon from 'material-ui-icons/LibraryBooks';
 
 import { Link } from 'react-router-dom';
@@ -21,6 +22,12 @@ export default class Layout extends React.Component {
                         <LibraryBooksIcon/>
                     </div>
                     <p>Предмети</p>
+                </Link>
+                <Link to="/admin/groups" className="item">
+                    <div>
+                        <GroupIcon />
+                    </div>
+                    <p>Групи</p>
                 </Link>
                 <Link to="/admin/courses" className="item">
                     <div>
