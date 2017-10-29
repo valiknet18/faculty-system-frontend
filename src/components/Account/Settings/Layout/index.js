@@ -19,50 +19,52 @@ class Layout extends React.Component {
         let { handleSubmit } = this.props;
 
         return (
-            <Paper className="layout settings-layout">
+            <Paper className="layout">
                 <h3>Налаштування профайлу</h3>
                 <Form onSubmit={handleSubmit(this.handleForm.bind(this))}>
-                    <div className="form-group">
-                        <FormControl>
-                            <Field
-                                label="Прізвіще"
-                                name="firstName"
-                                type="text"
-                                component={TextField}
-                            />
-                        </FormControl>
+                    <div className="fields">
+                        <div className="form-group">
+                            <FormControl>
+                                <Field
+                                    label="Прізвіще"
+                                    name="firstName"
+                                    type="text"
+                                    component={TextField}
+                                />
+                            </FormControl>
+                        </div>
+                        <div className="form-group">
+                            <FormControl>
+                                <Field
+                                    label="Ім'я"
+                                    name="lastName"
+                                    type="text"
+                                    component={TextField}
+                                />
+                            </FormControl>
+                        </div>
+                        <div className="form-group">
+                            <FormControl>
+                                <Field
+                                    label="По-батькові"
+                                    name="middleName"
+                                    type="text"
+                                    component={TextField}
+                                />
+                            </FormControl>
+                        </div>
+                        <div className="form-group">
+                            <FormControl>
+                                <Field
+                                    label="E-mail"
+                                    name="email"
+                                    type="email"
+                                    component={TextField}
+                                />
+                            </FormControl>
+                        </div>
                     </div>
-                    <div className="form-group">
-                        <FormControl>
-                            <Field
-                                label="Ім'я"
-                                name="lastName"
-                                type="text"
-                                component={TextField}
-                            />
-                        </FormControl>
-                    </div>
-                    <div className="form-group">
-                        <FormControl>
-                            <Field
-                                label="По-батькові"
-                                name="middleName"
-                                type="text"
-                                component={TextField}
-                            />
-                        </FormControl>
-                    </div>
-                    <div className="form-group">
-                        <FormControl>
-                            <Field
-                                label="E-mail"
-                                name="email"
-                                type="email"
-                                component={TextField}
-                            />
-                        </FormControl>
-                    </div>
-                    <div className="form-group">
+                    <div className="controls">
                         <Button raised color="primary" type="submit">
                             Зберегти
                         </Button>

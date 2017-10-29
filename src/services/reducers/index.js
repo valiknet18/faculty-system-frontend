@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 import auth from './auth';
 import courses from './courses';
 import admin from './admin';
+import adminLearningSemesters from './admin/learning-semesters';
 import adminSubjects from './admin/subjects';
 import adminGroups from './admin/groups';
 import adminUsers from './admin/users';
@@ -16,6 +17,7 @@ const rootReducer = combineReducers({
     adminGroups: adminGroups,
     adminUsers: adminUsers,
     adminCourses: adminCourses,
+    adminLearningSemesters: adminLearningSemesters,
     admin: admin
 });
 

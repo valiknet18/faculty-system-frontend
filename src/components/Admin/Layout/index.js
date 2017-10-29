@@ -6,6 +6,7 @@ import DescriptionIcon from 'material-ui-icons/Description';
 import PeopleIcon from 'material-ui-icons/People';
 import LibraryBooksIcon from 'material-ui-icons/LibraryBooks';
 import GroupIcon from 'material-ui-icons/Group';
+import AssignmentIcon from 'material-ui-icons/Assignment';
 import Router from '../Router';
 import Snackbars from '../Snackbars';
 
@@ -33,6 +34,7 @@ export default class Layout extends React.Component {
                 <BottomNavigationButton label="Групи" value="groups" icon={<GroupIcon />} />
                 <BottomNavigationButton label="Предмети" value="subjects" icon={<LibraryBooksIcon />} />
                 <BottomNavigationButton label="Курси" value="courses" icon={<DescriptionIcon />} />
+                <BottomNavigationButton label="Навчальні семестрі" value="learning-semesters" icon={<AssignmentIcon />} />
             </BottomNavigation>,
             <Snackbars />
         ];

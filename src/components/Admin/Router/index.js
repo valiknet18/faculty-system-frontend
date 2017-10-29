@@ -6,6 +6,7 @@ import Users from '../Users/Layout';
 import Subjects from '../Subjects/Layout';
 import Courses from '../Courses/Layout';
 import Groups from '../Groups/Layout';
+import LearningSemesters from '../LearningSemesters/Layout';
 import Dashboard from '../Dashboard';
 
 export default class Router extends React.Component {
@@ -16,6 +17,7 @@ export default class Router extends React.Component {
             <Route path="/admin/subjects" component={Subjects} />,
             <Route path="/admin/courses" component={Courses} />,
             <Route path="/admin/groups" component={Groups} />,
+            <Route path="/admin/learning-semesters" component={LearningSemesters} />,
         ];
     }
 }

@@ -1,6 +1,7 @@
 import {CREATE_SUBJECT, CREATE_THEME} from "../../constants/admin/subjects";
 import {HIDE_MESSAGE} from "../../constants/admin/index";
 import {CREATE_GROUP} from "../../constants/admin/groups";
+import {CREATE_LEARNING_SEMESTER} from "../../constants/admin/learning-semesters";
 
 let initialState = {
     message: null
@@ -21,6 +22,11 @@ export default function admin(state = initialState, payload) {
         case CREATE_GROUP:
             return Object.assign({}, state, {
                 message: 'Група успішно створена'
+            });
+
+        case CREATE_LEARNING_SEMESTER:
+            return Object.assign({}, state, {
+                message: 'Навчальний семестр успішно створений'
             });
 
         case HIDE_MESSAGE:

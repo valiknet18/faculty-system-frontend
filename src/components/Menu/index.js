@@ -32,7 +32,7 @@ export default class Menu extends React.Component {
                         <ListItemIcon>
                             <AccountBoxIcon />
                         </ListItemIcon>
-                        <ListItemText primary="Профайл" />
+                        <ListItemText primary="Персональна сторінка" />
                     </ListItem>
                     <ListItem button component={Link} to="/courses">
                         <ListItemIcon>
