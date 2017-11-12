@@ -24,8 +24,6 @@ export class List extends React.Component {
         let { users, waitingForUsers  } = this.props;
         let rowsWithUsers;
 
-        console.log(users);
-
         if (users.length > 0) {
             rowsWithUsers = users.map(n => {
                 return (
@@ -36,9 +34,11 @@ export class List extends React.Component {
                         <TableCell>
                             <div>
                                 <Tooltip title="Редагувати участника" placement="bottom">
-                                    <IconButton aria-label="Edit">
-                                        <EditIcon />
-                                    </IconButton>
+                                    <Link to={`/admin/users/${n.id}/edit`}>
+                                        <IconButton aria-label="Edit">
+                                            <EditIcon />
+                                        </IconButton>
+                                    </Link>
                                 </Tooltip>
                                 <Tooltip title="Видалити участника" placement="bottom">
                                     <IconButton aria-label="Remove">

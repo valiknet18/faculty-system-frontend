@@ -1,7 +1,8 @@
-import {CREATE_SUBJECT, CREATE_THEME} from "../../constants/admin/subjects";
+import {CREATE_SUBJECT, CREATE_THEME, CREATE_TASK} from "../../constants/admin/subjects";
 import {HIDE_MESSAGE} from "../../constants/admin/index";
 import {CREATE_GROUP} from "../../constants/admin/groups";
 import {CREATE_LEARNING_SEMESTER} from "../../constants/admin/learning-semesters";
+import {CREATE_COURSE} from "../../constants/admin/courses";
 
 let initialState = {
     message: null
@@ -27,6 +28,16 @@ export default function admin(state = initialState, payload) {
         case CREATE_LEARNING_SEMESTER:
             return Object.assign({}, state, {
                 message: 'Навчальний семестр успішно створений'
+            });
+
+        case CREATE_COURSE:
+            return Object.assign({}, state, {
+                message: 'Навчальний курс успішно створений'
+            });
+
+        case CREATE_TASK:
+            return Object.assign({}, state, {
+                message: 'Завдання успішно створене'
             });
 
         case HIDE_MESSAGE:

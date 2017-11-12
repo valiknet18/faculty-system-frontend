@@ -1,6 +1,6 @@
 import {
     GET_COURSES_ACTION,
-    WAITING_FOR_GET_COURSES
+    WAITING_FOR_GET_COURSES,
 } from '../../services/constants/courses';
 
 let initialState = {

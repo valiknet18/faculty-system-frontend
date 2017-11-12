@@ -11,18 +11,19 @@ import Tooltip from 'material-ui/Tooltip';
 import './main.css';
 import {connect} from "react-redux";
 import {getTasks} from "../../../../../../services/actions/admin/subjects";
+import {Link} from "react-router-dom";
 
 export class Layout extends React.Component {
     constructor(props) {
         super(props);
 
-        let { dispatch, match: { params: { subject, theme } } } = props;
+        let { dispatch, match: { params } } = props;
 
-        dispatch(getTasks(subject, theme));
+        dispatch(getTasks(params));
     }
 
     render() {
-        let { tasks } = this.props;
+        let { tasks, waitingForThemes, match: { params: { subject, theme } } } = this.props;
         let rowsWithTasks;
 
         if (tasks.length > 0) {
@@ -60,9 +61,11 @@ export class Layout extends React.Component {
             <div>
                 <div className="controls">
                     <Tooltip title="Додати нову задачу" placement="bottom">
-                        <IconButton aria-label="Add">
-                            <AddIcon />
-                        </IconButton>
+                        <Link to={`/admin/subjects/` + subject + `/themes/` + theme + `/tasks/create`}>
+                            <IconButton aria-label="Add">
+                                <AddIcon />
+                            </IconButton>
+                        </Link>
                     </Tooltip>
                 </div>
                 <div className="datatable">

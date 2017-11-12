@@ -14,8 +14,10 @@ import './main.css';
 
 export default class Layout extends React.Component {
     handleChange(event, value) {
+        let { match: { params } } = this.props;
+
         this.props.history.push(
-            this.props.match.path + "/" + value
+            `/courses/${params.course}/` + value
         );
     }
 

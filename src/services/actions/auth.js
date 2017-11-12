@@ -91,3 +91,47 @@ export function logout() {
         type: LOGOUT_USER
     };
 }
+
+export function checkRegistrationUser(params) {
+    return async (dispatch) => {
+        let endpoint = `${parameters.prefix}/${endpoints.auth.checkRegistration}`.replace(':token:', params.token);
+
+        let response = await request.get(endpoint);
+        let profile = await response.json();
+
+        switch(response.status) {
+            case 200:
+                return dispatch({
+                    type: SIGN_IN_SUCCESS,
+                    profile: profile
+                });
+
+            default:
+                console.log(`Unprocessed status code ${response.status}`);
+                return false;
+        }
+    }
+}
+
+export function registrationUser(form, params) {
+    return async (dispatch) => {
+        let endpoint = `${parameters.prefix}/${endpoints.auth.registration}`.replace(':token:', params.token);
+
+        let response = await request.post(endpoint, {
+            body: JSON.stringify(form),
+        });
+        let profile = await response.json();
+
+        switch(response.status) {
+            case 201:
+                return dispatch({
+                    type: SIGN_IN_SUCCESS,
+                    profile: profile
+                });
+
+            default:
+                console.log(`Unprocessed status code ${response.status}`);
+                return false;
+        }
+    }
+}

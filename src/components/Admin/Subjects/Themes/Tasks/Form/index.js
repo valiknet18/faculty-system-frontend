@@ -3,11 +3,11 @@ import * as React from "react";
 import { reduxForm, Form, Field } from 'redux-form';
 import { FormControl } from 'material-ui/Form';
 import Button from 'material-ui/Button';
-import TextField from '../../../../../utils/TextField';
 
-import './main.css';
+import TextField from '../../../../../../utils/TextField';
+import QuillFormText from "../../../../../../utils/QuillFormText";
 
-class ThemeForm extends React.Component {
+class TaskForm extends React.Component {
     render() {
         let { handleSubmit, processForm, button } = this.props;
 
@@ -17,9 +17,23 @@ class ThemeForm extends React.Component {
                     <div className="form-group">
                         <FormControl>
                             <Field
-                                label="Назва теми"
+                                label="Назва задачі"
                                 name="title"
                                 type="text"
+                                component={TextField}
+                            />
+                        </FormControl>
+                    </div>
+                </div>
+                <div className="fields">
+                    <div className="form-group">
+                        <FormControl>
+                            <Field
+                                label="Опис задачі"
+                                name="content"
+                                type="text"
+                                multiline
+                                rows="4"
                                 component={TextField}
                             />
                         </FormControl>
@@ -35,10 +49,10 @@ class ThemeForm extends React.Component {
     }
 }
 
-function createSubjectForm() {
+function createTaskForm() {
     return {
-        form: 'subject-form'
+        form: 'task-form'
     };
 }
 
-export default reduxForm(createSubjectForm())(ThemeForm);
+export default reduxForm(createTaskForm())(TaskForm);

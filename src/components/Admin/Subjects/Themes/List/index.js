@@ -16,9 +16,9 @@ class List extends React.Component {
     constructor(props) {
         super(props);
 
-        let { dispatch, match: { params: { subject } } } = this.props;
+        let { dispatch, match: { params } } = this.props;
 
-        dispatch(getThemes(subject));
+        dispatch(getThemes(params));
     }
 
     render() {

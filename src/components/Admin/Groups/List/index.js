@@ -24,8 +24,6 @@ export class List extends React.Component {
         let { groups, waitingForGroups  } = this.props;
         let rowsWithGroups;
 
-        console.log(groups);
-
         if (groups.length > 0) {
             rowsWithGroups = groups.map(n => {
                 return (

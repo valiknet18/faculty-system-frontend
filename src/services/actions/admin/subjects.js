@@ -6,7 +6,8 @@ import {
     WAITING_FOR_THEMES,
     WAITING_FOR_TASKS,
     CREATE_SUBJECT,
-    CREATE_THEME
+    CREATE_THEME,
+    CREATE_TASK
 } from '../../constants/admin/subjects';
 import parameters from '../../../config/parameters';
 import endpoints from '../../../config/endpoints';
@@ -48,13 +49,14 @@ export function createSubject(form) {
     }
 }
 
-export function getThemes(subject) {
+export function getThemes(params) {
     return async (dispatch) => {
         dispatch({
             type: WAITING_FOR_THEMES
         });
 
-        const endpoint = `${parameters.prefix}/${endpoints.admin.subjects.getThemes}`.replace(':subject', subject);
+        const endpoint = `${parameters.prefix}/${endpoints.admin.subjects.getThemes}`
+            .replace(':subject', params.subject);
 
         let response = await request.get(endpoint);
         let json = await response.json();
@@ -69,9 +71,10 @@ export function getThemes(subject) {
     }
 }
 
-export function createTheme(subject, form) {
+export function createTheme(params, form) {
     return async (dispatch) => {
-        const endpoint = `${parameters.prefix}/${endpoints.admin.subjects.createTheme}`.replace(':subject', subject);
+        const endpoint = `${parameters.prefix}/${endpoints.admin.subjects.createTheme}`
+            .replace(':subject', params.subject);
 
         let response = await request.post(endpoint, {
             body: JSON.stringify(form)
@@ -87,13 +90,16 @@ export function createTheme(subject, form) {
     }
 }
 
-export function getTasks(subject, theme) {
+export function getTasks(params) {
     return async (dispatch) => {
         dispatch({
             type: WAITING_FOR_TASKS
         });
 
-        const endpoint = `${parameters.prefix}/${endpoints.admin.subjects.getTasks}`.replace(':subject', subject).replace(':theme', theme);
+        const endpoint = `${parameters.prefix}/${endpoints.admin.subjects.getTasks}`
+            .replace(':subject', params.subject)
+            .replace(':theme', params.theme);
+
         let response = await request.get(endpoint);
         let json = await response.json();
 
@@ -103,6 +109,26 @@ export function getTasks(subject, theme) {
                     type: GET_SUBJECT_TASKS,
                     tasks: json.tasks
                 });
+        }
+    }
+}
+
+export function createTask(params, form) {
+    return async (dispatch) => {
+        const endpoint = `${parameters.prefix}/${endpoints.admin.subjects.createTask}`
+            .replace(':subject', params.subject)
+            .replace(':theme', params.theme);
+
+        let response = await request.post(endpoint, {
+            body: JSON.stringify(form)
+        });
+        let json = await response.json();
+
+        switch (response.status) {
+            case 201:
+                return dispatch({
+                    type: CREATE_TASK
+                })
         }
     }
 }

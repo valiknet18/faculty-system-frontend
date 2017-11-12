@@ -1,24 +1,26 @@
 import React from 'react';
 import { DragSource } from 'react-dnd'
 
+import { Link } from 'react-router-dom';
+
 import './main.css';
 
 class Task extends React.Component {
     render() {
-        let { task } = this.props;
+        let { task, match: { params } } = this.props;
 
-        const { isDragging, connectDragSource } = this.props;
+        const { connectDragSource } = this.props;
 
         return connectDragSource(
             <div className="task-item" key={task.id}>
                 <div className="header">
                     <p>
-                        { task.description }
+                        { task.title }
                     </p>
                 </div>
                 <div className="actions">
-                    <span className="full-name">Гриневич Валентин</span>
-                    <span className="link">Перейти</span>
+                    <span className="full-name">{ task.fullname }</span>
+                    <Link to={`/courses/` + params.course + `/tasks/` + task.id} className="link">Перейти</Link>
                 </div>
             </div>
         );
@@ -33,21 +35,35 @@ function mapSource(connect, monitor) {
 }
 
 const taskSource = {
-    beginDrag(props) {
-        return {
-            id: props.id,
+    beginDrag({ task }) {
+        return task;
+    },
+
+    canDrag(props, monitor) {
+        const item = monitor.getItem();
+        const dropResult = monitor.getDropResult();
+
+        if (!dropResult) {
+            return true;
         }
+
+        return item.status === 'backlog' && dropResult.id === 'in-progress';
+    },
+
+    isDragging(props, monitor) {
+        const item = monitor.getItem();
+        const dropResult = monitor.getDropResult();
+
+        if (!dropResult) {
+            return false;
+        }
+
+        return item.status === 'backlog' && dropResult.id === 'in-progress';
     },
 
     endDrag(props, monitor) {
         const item = monitor.getItem();
         const dropResult = monitor.getDropResult();
-
-        console.log(monitor);
-
-        console.log(item);
-        console.log(dropResult);
-        console.log(props);
     },
 };
 

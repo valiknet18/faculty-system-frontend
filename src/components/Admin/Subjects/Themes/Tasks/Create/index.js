@@ -1,16 +1,13 @@
 import * as React from "react";
-
-import ThemeForm from '../Form';
-
-import './main.css';
-import {connect} from "react-redux";
-import {createTheme} from "../../../../../services/actions/admin/subjects";
+import TaskForm from '../Form';
+import { connect } from "react-redux";
+import { createTask } from "../../../../../../services/actions/admin/subjects";
 
 class Create extends React.Component {
     async processForm(form) {
         let { dispatch, match: { params } } = this.props;
 
-        dispatch(createTheme(params, form));
+        dispatch(createTask(params, form));
     }
 
     render() {
@@ -20,7 +17,7 @@ class Create extends React.Component {
                     <h3>Створнення нової темі</h3>
                 </div>
 
-                <ThemeForm processForm={this.processForm.bind(this)} button="Створити" />
+                <TaskForm processForm={this.processForm.bind(this)} button="Створити" />
             </div>
         );
     }

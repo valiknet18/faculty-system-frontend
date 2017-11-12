@@ -1,7 +1,7 @@
 import {
     GET_COURSES_ACTION,
     WAITING_FOR_GET_COURSES,
-    GETTING_COURSES_ERROR
+    GETTING_COURSES_ERROR,
 } from '../../services/constants/courses';
 
 import parameters from '../../config/parameters';

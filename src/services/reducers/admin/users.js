@@ -1,8 +1,9 @@
-import {GET_USERS, WAITING_FOR_USERS} from "../../constants/admin/users";
+import { GET_USERS, WAITING_FOR_USERS, GET_USER } from "../../constants/admin/users";
 
 let initialState = {
     users: [],
-    waitingForUsers: false
+    waitingForUsers: false,
+    user: {},
 };
 
 export default function users(state = initialState, payload) {
@@ -16,6 +17,11 @@ export default function users(state = initialState, payload) {
             return Object.assign({}, state, {
                 waitingForUsers: false,
                 users: payload.users
+            });
+
+        case GET_USER:
+            return Object.assign({}, state, {
+                user: payload.user,
             });
 
         default:

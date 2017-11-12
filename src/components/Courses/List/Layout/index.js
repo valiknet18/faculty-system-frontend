@@ -43,7 +43,7 @@ class Layout extends React.Component {
                                     <TableCell>{n.teacher}</TableCell>
                                     <TableCell>{n.group}</TableCell>
                                     <TableCell>
-                                        <Link to="/courses/course/dashboard" className="link">Перейти</Link>
+                                        <Link to={`/courses/` + n.id + `/dashboard`} className="link">Перейти</Link>
                                     </TableCell>
                                 </TableRow>
                             );

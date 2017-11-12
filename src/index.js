@@ -13,6 +13,7 @@ import Layout from './components/Layout';
 
 import './index.css';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
+import 'react-quill/dist/quill.snow.css'
 
 const theme = configureTheme();
 const store = configureStore();

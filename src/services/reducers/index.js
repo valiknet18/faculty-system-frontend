@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import auth from './auth';
 import courses from './courses';
+import tasks from './tasks';
 import admin from './admin';
 import adminLearningSemesters from './admin/learning-semesters';
 import adminSubjects from './admin/subjects';
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
     auth: auth,
     subjects: courses,
     form: formReducer,
+    tasks: tasks,
     adminSubjects: adminSubjects,
     adminGroups: adminGroups,
     adminUsers: adminUsers,
