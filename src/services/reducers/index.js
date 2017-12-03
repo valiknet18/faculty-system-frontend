@@ -1,4 +1,6 @@
 import { combineReducers } from 'redux';
+import { routerReducer } from 'react-router-redux';
+
 import auth from './auth';
 import courses from './courses';
 import tasks from './tasks';
@@ -8,9 +10,11 @@ import adminSubjects from './admin/subjects';
 import adminGroups from './admin/groups';
 import adminUsers from './admin/users';
 import adminCourses from './admin/courses';
-import { reducer as formReducer } from 'redux-form'
+import { reducer as formReducer } from 'redux-form';
 
 const rootReducer = combineReducers({
+    router: routerReducer,
+
     auth: auth,
     subjects: courses,
     form: formReducer,
@@ -20,8 +24,7 @@ const rootReducer = combineReducers({
     adminUsers: adminUsers,
     adminCourses: adminCourses,
     adminLearningSemesters: adminLearningSemesters,
-    admin: admin
+    admin: admin,
 });
-
 
 export default rootReducer;

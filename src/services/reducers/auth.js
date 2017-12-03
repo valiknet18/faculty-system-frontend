@@ -16,7 +16,7 @@ export default function auth(state = initialState, action) {
     switch (action.type) {
         case WAITING_FOR_LOGIN_RESPONSE:
             return Object.assign({}, state, {
-                waitingForSignUser: true
+                waitingForSignInUser: true
             });
 
         case SIGN_IN_SUCCESS:
@@ -34,7 +34,7 @@ export default function auth(state = initialState, action) {
         case TOKEN_NOT_EXISTS:
         case LOGOUT_USER:
             return Object.assign({}, state, {
-                profile: -1,
+                profile: 0,
                 waitingForSignInUser: false,
             });
 
