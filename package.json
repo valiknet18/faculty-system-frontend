@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "history": "^4.7.2",
     "material-ui": "v1.0.0-beta.18",
     "material-ui-icons": "^1.0.0-beta.17",
     "moment": "^2.19.1",
@@ -15,6 +16,7 @@
     "react-quill": "v1.1.0",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
+    "react-router-redux": "^5.0.0-alpha.8",
     "react-rte": "^0.15.0",
     "react-scripts": "1.0.14",
     "redux": "^3.7.2",
