@@ -1,3 +1,5 @@
+import { goBack } from 'react-router-redux';
+
 import {CREATE_GROUP, GET_GROUPS, WAITING_FOR_GROUPS} from "../../constants/admin/groups";
 import parameters from '../../../config/parameters';
 import endpoints from '../../../config/endpoints';
@@ -32,6 +34,8 @@ export function createGroup(form) {
 
         switch (response.status) {
             case 201:
+                dispatch(goBack());
+
                 return dispatch({
                     type: CREATE_GROUP
                 })
