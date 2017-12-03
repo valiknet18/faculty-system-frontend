@@ -1,10 +1,13 @@
 import { goBack } from 'react-router-redux';
 
-import {CREATE_GROUP, GET_GROUPS, WAITING_FOR_GROUPS} from "../../constants/admin/groups";
+import {CREATE_GROUP, GET_GROUPS, WAITING_FOR_GROUPS, EDIT_GROUPS} from "../../constants/admin/groups";
 import parameters from '../../../config/parameters';
 import endpoints from '../../../config/endpoints';
 
 import request from '../../utils/request';
+import { ADD_GROUP_SUCCESS } from "../../constants/admin/adminSubjectMessage";
+
+import  {visibleAdminMessage } from "./index";
 
 export function getGroups() {
     return async (dispatch) => {
@@ -35,10 +38,32 @@ export function createGroup(form) {
         switch (response.status) {
             case 201:
                 dispatch(goBack());
+                dispatch(visibleAdminMessage(ADD_GROUP_SUCCESS));
 
                 return dispatch({
                     type: CREATE_GROUP
                 })
+        }
+    }
+}
+
+export function editGroup(params, form) {
+    return async (dispatch)  => {
+        const endpoint = `${parameters.prefix}/${endpoints.admin.groups.editGroup}`
+            .replace(':group:', params.user);
+
+        let response = await request.put(endpoint, {
+            body: JSON.stringify(form)
+        });
+        let json = await response.json();
+
+        switch (response.status) {
+            case 200:
+                dispatch(goBack());
+
+                return dispatch({
+                    type: EDIT_GROUPS
+                });
         }
     }
 }

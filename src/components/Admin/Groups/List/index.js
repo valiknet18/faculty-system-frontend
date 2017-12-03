@@ -20,8 +20,8 @@ export class List extends React.Component {
         dispatch(getGroups());
     }
 
-    render() {
-        let { groups, waitingForGroups  } = this.props;
+    renderRows() {
+        let { groups } = this.props;
         let rowsWithGroups;
 
         if (groups.length > 0) {
@@ -33,9 +33,11 @@ export class List extends React.Component {
                         <TableCell>
                             <div>
                                 <Tooltip title="Редагувати групу" placement="bottom">
-                                    <IconButton aria-label="Edit">
-                                        <EditIcon />
-                                    </IconButton>
+                                    <Link to={`/admin/groups/${n.id}/edit`}>
+                                        <IconButton aria-label="Edit">
+                                            <EditIcon />
+                                        </IconButton>
+                                    </Link>
                                 </Tooltip>
                                 <Tooltip title="Видалити групу" placement="bottom">
                                     <IconButton aria-label="Remove">
@@ -54,6 +56,12 @@ export class List extends React.Component {
                 </TableRow>
             );
         }
+
+        return rowsWithGroups;
+    }
+
+    render() {
+        let { waitingForGroups  } = this.props;
 
         return (
             <div>
@@ -76,7 +84,7 @@ export class List extends React.Component {
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            { (waitingForGroups) ? <CircularProgress thickness={7} /> : rowsWithGroups }
+                            { (waitingForGroups) ? <CircularProgress thickness={7} /> : this.renderRows.call(this) }
                         </TableBody>
                     </Table>
                 </div>

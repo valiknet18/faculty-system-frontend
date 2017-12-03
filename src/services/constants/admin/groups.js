@@ -1,3 +1,4 @@
 export const GET_GROUPS = 'GET GROUPS';
+export const EDIT_GROUPS = 'GET EDIT_GROUPS';
 export const WAITING_FOR_GROUPS = 'WAITING FOR GROUPS';
 export const CREATE_GROUP = 'CREATE GROUP';

@@ -6,7 +6,6 @@ import Button from 'material-ui/Button';
 import TextField from '../../../../utils/TextField';
 import MaterialSelectField from "../../../../utils/SelectForm/index";
 import MenuItem from "material-ui/es/Menu/MenuItem";
-import Input from "material-ui/es/Input/Input";
 
 class UserForm extends React.Component {
     render() {
