@@ -11,6 +11,8 @@ import {
     CREATE_THEME,
     CREATE_TASK
 } from '../../constants/admin/subjects';
+import { visibleAdminMessage } from '../../actions/admin';
+import {ADD_TASK_SUCCESS, ADD_SUBJECT_SUCCESS, ADD_THEME_SUCCESS} from '../../constants/admin/adminSubjectMessage';
 import parameters from '../../../config/parameters';
 import endpoints from '../../../config/endpoints';
 
@@ -45,6 +47,7 @@ export function createSubject(form) {
         switch (response.status) {
             case 201:
                 dispatch(goBack());
+                dispatch(visibleAdminMessage(ADD_SUBJECT_SUCCESS));
 
                 return dispatch({
                     type: CREATE_SUBJECT
@@ -87,6 +90,8 @@ export function createTheme(params, form) {
 
         switch (response.status) {
             case 201:
+                dispatch(visibleAdminMessage(ADD_THEME_SUCCESS));
+
                 return dispatch({
                     type: CREATE_THEME
                 })
@@ -130,6 +135,8 @@ export function createTask(params, form) {
 
         switch (response.status) {
             case 201:
+                dispatch(visibleAdminMessage(ADD_TASK_SUCCESS));
+
                 return dispatch({
                     type: CREATE_TASK
                 })

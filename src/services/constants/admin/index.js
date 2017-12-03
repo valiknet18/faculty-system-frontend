@@ -1,1 +1,2 @@
 export const HIDE_MESSAGE = 'HIDE MESSAGE';
+export const VISIBLE_MESSAGE = 'VISIBLE MESSAGE';

@@ -4,7 +4,7 @@ import { routerReducer } from 'react-router-redux';
 import auth from './auth';
 import courses from './courses';
 import tasks from './tasks';
-import admin from './admin';
+import admin from './admin/messages';
 import adminLearningSemesters from './admin/learning-semesters';
 import adminSubjects from './admin/subjects';
 import adminGroups from './admin/groups';
