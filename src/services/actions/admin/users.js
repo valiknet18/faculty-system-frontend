@@ -1,3 +1,5 @@
+import { goBack } from 'react-router-redux';
+
 import parameters from '../../../config/parameters';
 import endpoints from '../../../config/endpoints';
 
@@ -39,6 +41,8 @@ export function createUser(form) {
 
         switch (response.status) {
             case 201:
+                dispatch(goBack());
+
                 return dispatch({
                     type: INVITE_USER
                 })

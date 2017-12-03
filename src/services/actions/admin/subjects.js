@@ -1,3 +1,5 @@
+import { goBack } from 'react-router-redux';
+
 import {
     WAITING_FOR_SUBJECTS,
     GET_SUBJECTS,
@@ -42,6 +44,8 @@ export function createSubject(form) {
 
         switch (response.status) {
             case 201:
+                dispatch(goBack());
+
                 return dispatch({
                     type: CREATE_SUBJECT
                 })
