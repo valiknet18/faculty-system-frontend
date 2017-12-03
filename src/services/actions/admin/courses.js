@@ -3,8 +3,6 @@ import parameters from '../../../config/parameters';
 import endpoints from '../../../config/endpoints';
 
 import request from '../../utils/request';
-import { ADD_COURSE_SUCCESS } from "../../constants/admin/adminSubjectMessage";
-import { visibleAdminMessage } from "./index";
 
 export function getCourses() {
     return async (dispatch) => {
@@ -34,8 +32,6 @@ export function createCourse(form) {
 
         switch (response.status) {
             case 201:
-                dispatch(visibleAdminMessage(ADD_COURSE_SUCCESS));
-
                 return dispatch({
                     type: CREATE_COURSE
                 })
