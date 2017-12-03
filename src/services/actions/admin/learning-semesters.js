@@ -1,10 +1,12 @@
-import { GET_LEARNING_SEMESTERS, WAITING_FOR_LEARNING_SEMESTERS, CREATE_LEARNING_SEMESTER } from "../../constants/admin/learning-semesters";
+import {
+    GET_LEARNING_SEMESTERS,
+    WAITING_FOR_LEARNING_SEMESTERS,
+    CREATE_LEARNING_SEMESTER
+} from "../../constants/admin/learning-semesters";
 import parameters from '../../../config/parameters';
 import endpoints from '../../../config/endpoints';
 
 import request from '../../utils/request';
-import { ADD_SEMESTER_SUCCESS } from "../../constants/admin/adminSubjectMessage";
-import { visibleAdminMessage } from "./index";
 
 export function getLearningSemesters() {
     return async (dispatch) => {
@@ -34,8 +36,6 @@ export function createLearningSemester(form) {
 
         switch (response.status) {
             case 201:
-                dispatch(visibleAdminMessage(ADD_SEMESTER_SUCCESS));
-
                 return dispatch({
                     type: CREATE_LEARNING_SEMESTER
                 })

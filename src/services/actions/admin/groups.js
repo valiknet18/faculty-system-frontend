@@ -5,9 +5,6 @@ import parameters from '../../../config/parameters';
 import endpoints from '../../../config/endpoints';
 
 import request from '../../utils/request';
-import { ADD_GROUP_SUCCESS } from "../../constants/admin/adminSubjectMessage";
-
-import  {visibleAdminMessage } from "./index";
 
 export function getGroups() {
     return async (dispatch) => {
@@ -38,7 +35,6 @@ export function createGroup(form) {
         switch (response.status) {
             case 201:
                 dispatch(goBack());
-                dispatch(visibleAdminMessage(ADD_GROUP_SUCCESS));
 
                 return dispatch({
                     type: CREATE_GROUP
