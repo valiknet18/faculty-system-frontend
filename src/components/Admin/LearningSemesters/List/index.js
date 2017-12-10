@@ -28,8 +28,8 @@ export class List extends React.Component {
             rowsWithLearningSemesters = learningSemesters.map(n => {
                 return (
                     <TableRow key={n.id}>
-                        <TableCell>{n.from_date}</TableCell>
-                        <TableCell>{n.to_date}</TableCell>
+                        <TableCell>{n.fromDate}</TableCell>
+                        <TableCell>{n.toDate}</TableCell>
                         <TableCell>
                             <div>
                                 <Tooltip title="Редагувати курс" placement="bottom">

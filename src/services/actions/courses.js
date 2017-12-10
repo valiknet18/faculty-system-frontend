@@ -19,15 +19,17 @@ export function getCourses() {
 
         switch (response.status) {
             case 200:
-                return dispatch({
+                dispatch({
                     type: GET_COURSES_ACTION,
                     courses: json.courses
                 });
+                break;
 
             case 422:
-                return dispatch({
+                dispatch({
                     type: GETTING_COURSES_ERROR
                 });
+                break;
         }
     }
 }

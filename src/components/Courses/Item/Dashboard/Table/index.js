@@ -20,10 +20,10 @@ class Table extends React.Component {
 
         return (
             <div className="dashboard">
-                <Column key="1" title="Не виконані" id="backlog" tasks={tasks.backlog} allowedDropEffect="move" />
-                <Column key="2" title="В роботі" id="inProgress" tasks={tasks.inProgress} allowedDropEffect="move" />
-                <Column key="3" title="Виконані" id="done" tasks={tasks.done} allowedDropEffect="move" />
-                <Column key="4" title="Перевірені" id="checked" tasks={tasks.checked} allowedDropEffect="move" />
+                <Column key="1" title="Не виконані" id="backlog" courseTasks={tasks.backlog} allowedDropEffect="move" />
+                <Column key="2" title="В роботі" id="inProgress" courseTasks={tasks.inProgress} allowedDropEffect="move" />
+                <Column key="3" title="Виконані" id="done" courseTasks={tasks.done} allowedDropEffect="move" />
+                <Column key="4" title="Перевірені" id="checked" courseTasks={tasks.checked} allowedDropEffect="move" />
             </div>
         );
     }

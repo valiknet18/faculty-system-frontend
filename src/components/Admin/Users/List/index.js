@@ -28,7 +28,7 @@ export class List extends React.Component {
             rowsWithUsers = users.map(n => {
                 return (
                     <TableRow key={n.id}>
-                        <TableCell>{n.last_name + ' ' + n.first_name}</TableCell>
+                        <TableCell>{n.lastName + ' ' + n.firstName}</TableCell>
                         <TableCell>{n.email}</TableCell>
                         <TableCell>{n.role}</TableCell>
                         <TableCell>

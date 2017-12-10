@@ -7,20 +7,20 @@ import './main.css';
 
 class Task extends React.Component {
     render() {
-        let { task, match: { params } } = this.props;
+        let { courseTask, match: { params } } = this.props;
 
         const { connectDragSource } = this.props;
 
         return connectDragSource(
-            <div className="task-item" key={task.id}>
+            <div className="task-item" key={courseTask.id}>
                 <div className="header">
                     <p>
-                        { task.title }
+                        { courseTask.task.title }
                     </p>
                 </div>
                 <div className="actions">
-                    <span className="full-name">{ task.fullname }</span>
-                    <Link to={`/courses/` + params.course + `/tasks/` + task.id} className="link">Перейти</Link>
+                    <span className="full-name">{ courseTask.user.firstName } { courseTask.user.lastName }</span>
+                    <Link to={`/courses/` + params.course + `/tasks/` + courseTask.id} className="link">Перейти</Link>
                 </div>
             </div>
         );
@@ -35,8 +35,8 @@ function mapSource(connect, monitor) {
 }
 
 const taskSource = {
-    beginDrag({ task }) {
-        return task;
+    beginDrag({ courseTask }) {
+        return courseTask;
     },
 
     canDrag(props, monitor) {

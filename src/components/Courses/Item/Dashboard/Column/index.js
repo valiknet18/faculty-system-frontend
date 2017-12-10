@@ -9,7 +9,7 @@ import {withRouter} from "react-router-dom";
 
 class Column extends React.Component {
     render() {
-        let { title, tasks, id } = this.props;
+        let { title, courseTasks, id } = this.props;
         const { canDrop, isOver, allowedDropEffect, connectDropTarget } = this.props;
         const isActive = canDrop && isOver;
 
@@ -26,8 +26,8 @@ class Column extends React.Component {
                 </div>
                 <div className="tasks">
                     {
-                        tasks.map((task) => {
-                            return <Task task={task} match={this.props.match} />
+                        courseTasks.map((courseTask) => {
+                            return <Task courseTask={courseTask} match={this.props.match} />
                         })
                     }
                 </div>

@@ -8,5 +8,7 @@ export default store => next => action => {
         store.dispatch(visibleAdminMessage(message));
     }
 
+    console.log(action);
+
     next(action);
 };

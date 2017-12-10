@@ -29,9 +29,9 @@ export class List extends React.Component {
             rowsWithCourses = courses.map(n => {
                 return (
                     <TableRow key={n.course_id}>
-                        <TableCell>{n.subject_name}</TableCell>
-                        <TableCell>{n.group_name}</TableCell>
-                        <TableCell>{n.teacher_fullname}</TableCell>
+                        <TableCell>{n.subject.name}</TableCell>
+                        <TableCell>{n.group.name}</TableCell>
+                        <TableCell>{n.teacher.firstName} {n.teacher.lastName}</TableCell>
                         <TableCell>
                             <div>
                                 <Tooltip title="Редагувати курс" placement="bottom">

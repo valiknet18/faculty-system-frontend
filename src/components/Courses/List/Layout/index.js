@@ -39,9 +39,9 @@ class Layout extends React.Component {
                         {courses.map(n => {
                             return (
                                 <TableRow key={n.id} className="item">
-                                    <TableCell>{n.subject}</TableCell>
-                                    <TableCell>{n.teacher}</TableCell>
-                                    <TableCell>{n.group}</TableCell>
+                                    <TableCell>{n.subject.name}</TableCell>
+                                    <TableCell>{n.teacher.firstName} {n.teacher.lastName}</TableCell>
+                                    <TableCell>{n.group.name}</TableCell>
                                     <TableCell>
                                         <Link to={`/courses/` + n.id + `/dashboard`} className="link">Перейти</Link>
                                     </TableCell>
