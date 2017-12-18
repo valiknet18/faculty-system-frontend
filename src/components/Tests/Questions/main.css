@@ -1,0 +1,12 @@
+.questions-wrapper .list {
+  list-style: none; }
+  .questions-wrapper .list .item {
+    padding: 10px 15px; }
+    .questions-wrapper .list .item.disabled {
+      pointer-events: none; }
+      .questions-wrapper .list .item.disabled a {
+        color: #d4d4d4; }
+    .questions-wrapper .list .item a {
+      text-decoration: none;
+      color: #000;
+      cursor: pointer; }

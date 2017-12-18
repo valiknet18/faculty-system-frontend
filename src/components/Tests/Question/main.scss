@@ -1,0 +1,26 @@
+.question-wrapper {
+  .question-body {
+    padding: 5px 15px;
+
+    .related-answers {
+      .list {
+        .item {
+          display: flex;
+
+          .content {
+            flex: 2 1;
+          }
+
+          .answers {
+            flex: 1 1;
+            width: 100%;
+
+            &> div {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}

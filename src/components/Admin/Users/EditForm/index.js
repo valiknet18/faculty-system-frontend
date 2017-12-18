@@ -21,7 +21,7 @@ class UserForm extends React.Component {
 
     onChangeRoleField(e) {
         this.setState({
-            isStudent: e.target.value === STUDENT_ROLE,
+            isStudent: e.target.values === STUDENT_ROLE,
         });
     }
 

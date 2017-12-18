@@ -16,7 +16,7 @@ const QuillFormText = ({input, ...custom}) => {
         ]
     };
 
-    console.log(input.value);
+    console.log(input.values);
 
     return (
         <div>
@@ -25,7 +25,7 @@ const QuillFormText = ({input, ...custom}) => {
                 <div key="editor"
                      ref="editor"
                      className="quill-contents border_solid_top"
-                     dangerouslySetInnerHTML={{__html: input.value}} />
+                     dangerouslySetInnerHTML={{__html: input.values}} />
             </ReactQuill>
         </div>
 

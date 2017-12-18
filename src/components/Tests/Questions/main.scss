@@ -1,0 +1,23 @@
+.questions-wrapper {
+  .list {
+    list-style: none;
+
+    .item {
+      padding: 10px 15px;
+
+      &.disabled {
+        pointer-events: none;
+
+        a {
+          color: #d4d4d4;
+        }
+      }
+
+      a {
+        text-decoration: none;
+        color: #000;
+        cursor: pointer;
+      }
+    }
+  }
+}

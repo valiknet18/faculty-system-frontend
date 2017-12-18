@@ -1,0 +1,21 @@
+.tests-process-wrapper {
+  .body {
+    display: flex;
+    padding: 5px 10px;
+
+    .question {
+      flex: 2 1;
+    }
+
+    .questions {
+      flex: 1 1;
+    }
+  }
+
+  .controls {
+    .next,
+    .complete {
+      margin: 0 5px;
+    }
+  }
+}

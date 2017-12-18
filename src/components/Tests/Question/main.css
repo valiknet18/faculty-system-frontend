@@ -1,0 +1,11 @@
+.question-wrapper .question-body {
+  padding: 5px 15px; }
+  .question-wrapper .question-body .related-answers .list .item {
+    display: flex; }
+    .question-wrapper .question-body .related-answers .list .item .content {
+      flex: 2 1; }
+    .question-wrapper .question-body .related-answers .list .item .answers {
+      flex: 1 1;
+      width: 100%; }
+      .question-wrapper .question-body .related-answers .list .item .answers > div {
+        width: 100%; }

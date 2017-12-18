@@ -28,7 +28,7 @@ class UserForm extends React.Component {
                             </MenuItem>
                             {
                                 learningSemesters.map((learningSemester) => {
-                                    return <MenuItem key={learningSemester.id} value={learningSemester.id}>{learningSemester.from_date} - {learningSemester.to_date}</MenuItem>
+                                    return <MenuItem key={learningSemester.id} value={learningSemester.id}>{learningSemester.fromDate} - {learningSemester.toDate}</MenuItem>
                                 })
                             }
                         </Field>
@@ -81,7 +81,7 @@ class UserForm extends React.Component {
                             </MenuItem>
                             {
                                 teachers.map((teacher) => {
-                                    return <MenuItem key={teacher.id} value={teacher.id}>{teacher.last_name + " " + teacher.first_name}</MenuItem>
+                                    return <MenuItem key={teacher.id} value={teacher.id}>{teacher.lastName + " " + teacher.firstName}</MenuItem>
                                 })
                             }
                         </Field>

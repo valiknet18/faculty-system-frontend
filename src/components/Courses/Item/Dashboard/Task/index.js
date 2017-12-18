@@ -19,7 +19,8 @@ class Task extends React.Component {
                     </p>
                 </div>
                 <div className="actions">
-                    <span className="full-name">{ courseTask.user.firstName } { courseTask.user.lastName }</span>
+                    <span className="full-name"><b>Студент:</b> { courseTask.user.firstName } { courseTask.user.lastName }</span>
+                    <span className="deadline-date"><b>Дата завершення:</b> { courseTask.deadlineDate }</span>
                     <Link to={`/courses/` + params.course + `/tasks/` + courseTask.id} className="link">Перейти</Link>
                 </div>
             </div>
