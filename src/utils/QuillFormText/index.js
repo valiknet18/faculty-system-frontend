@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactQuill from 'react-quill';
 
-const QuillFormText = ({input, ...custom}) => {
+const QuillFormText = ({ input }) => {
     let _quillModules = {
         toolbar: [
             [{ 'header': [1, 2, false] }],
@@ -16,20 +16,20 @@ const QuillFormText = ({input, ...custom}) => {
         ]
     };
 
-    console.log(input.values);
-
     return (
-        <div>
-            <ReactQuill theme='snow'
-                        {...input}>
-                <div key="editor"
-                     ref="editor"
-                     className="quill-contents border_solid_top"
-                     dangerouslySetInnerHTML={{__html: input.values}} />
-            </ReactQuill>
-        </div>
-
-    )
+        <ReactQuill
+            {...input}
+            modules={_quillModules}
+            onChange={(newValue, delta, source) => {
+                if (source === 'user') {
+                    input.onChange(newValue);
+                }
+            }}
+            onBlur={(range, source, quill) => {
+                input.onBlur(quill.getHTML());
+            }}
+        />
+    );
 };
 
 export default QuillFormText;

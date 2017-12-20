@@ -5,9 +5,23 @@ import { FormControl } from 'material-ui/Form';
 import Button from 'material-ui/Button';
 
 import TextField from '../../../../../../utils/TextField';
-import QuillFormText from "../../../../../../utils/QuillFormText";
+import renderQuill from '../../../../../../utils/QuillFormText';
 
 class TaskForm extends React.Component {
+    constructor (props) {
+        super(props);
+
+        this.handleContentChange = this.handleContentChange.bind(this);
+
+        this.state = {
+            content: 'Example text'
+        };
+    }
+
+    handleContentChange(value) {
+        this.setState({content: value});
+    }
+
     render() {
         let { handleSubmit, processForm, button } = this.props;
 
@@ -25,20 +39,9 @@ class TaskForm extends React.Component {
                         </FormControl>
                     </div>
                 </div>
-                <div className="fields">
-                    <div className="form-group">
-                        <FormControl>
-                            <Field
-                                label="Опис задачі"
-                                name="content"
-                                type="text"
-                                multiline
-                                rows="4"
-                                component={TextField}
-                            />
-                        </FormControl>
-                    </div>
-                </div>
+
+                <Field name="description" component={renderQuill} />
+
                 <div className="controls">
                     <Button raised color="primary" type="submit">
                         { button }
