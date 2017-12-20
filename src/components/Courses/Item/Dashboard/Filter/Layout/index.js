@@ -19,10 +19,10 @@ export default class Filter extends React.Component {
 
         return (
             <div className="dashboard-students">
-                <form>
-                    <FilterItem label="Студенти" items={students} />
-                    <FilterItem label="Теми" items={themes} />
-                </form>
+                {/*<form>*/}
+                    {/*<FilterItem label="Студенти" items={students} />*/}
+                    {/*<FilterItem label="Теми" items={themes} />*/}
+                {/*</form>*/}
             </div>
         );
     }

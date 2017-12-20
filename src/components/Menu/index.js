@@ -7,12 +7,21 @@ import AccountBoxIcon from 'material-ui-icons/AccountBox';
 import LockIcon from 'material-ui-icons/Lock';
 import Avatar from 'material-ui/Avatar';
 import Drawer from 'material-ui/Drawer';
-
+import {loadUser} from "../../services/actions/auth";
 import {Link} from 'react-router-dom'
+
 
 import './main.css';
 
 export default class Menu extends React.Component {
+    logout() {
+        let { dispatch } = this.props;
+
+        localStorage.removeItem('token');
+
+        dispatch(loadUser());
+    }
+
     render() {
         let { profile: { profile } } = this.props;
 
@@ -60,7 +69,7 @@ export default class Menu extends React.Component {
                         </ListItemIcon>
                         <ListItemText primary="Налаштування" />
                     </ListItem>
-                    <ListItem button>
+                    <ListItem button onClick={this.logout.bind(this)}>
                         <ListItemIcon>
                             <ExitToApp />
                         </ListItemIcon>

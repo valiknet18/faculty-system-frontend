@@ -1,4 +1,6 @@
 .task-wrapper {
+  padding: 10px 15px;
+
   .title {}
 
   .body {
@@ -21,6 +23,19 @@
 
         div {
           flex: 1 1;
+        }
+
+        &.test,
+        &.teacher {
+          a {
+            color: #009688;
+            text-decoration: none;
+            font-weight: 800;
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
         }
       }
     }

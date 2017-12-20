@@ -1,0 +1,2 @@
+export const GET_QUESTIONS = 'GET QUESTIONS';
+export const CREATE_QUESTION = 'CREATE QUESTION';

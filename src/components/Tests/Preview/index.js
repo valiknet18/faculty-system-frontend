@@ -4,6 +4,9 @@ import Save from 'material-ui-icons/Save';
 import { startTest, getTest } from '../../../services/actions/tests';
 import { connect } from "react-redux";
 
+import './main.css';
+import Crypto from "../../../services/utils/crypto";
+
 class Preview extends React.Component {
     constructor(props) {
         super(props);
@@ -32,17 +35,17 @@ class Preview extends React.Component {
                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                     </p>
                 </div>
-                <div>
+                <div className="list-of-points">
                     <ul>
                         <li>
-                            <span>Час виконання:</span> 30хв
+                            Час виконання: <span className="bold">30хв</span>
                         </li>
                         <li>
-                            <span>Кількість запитань:</span> 10
+                            Кількість запитань: <span className="bold">10</span>
                         </li>
                     </ul>
                 </div>
-                <div>
+                <div className={`controls`}>
                     <Button raised color="primary"
                             onClick={this.onClick.bind(this)}>
                         Почати

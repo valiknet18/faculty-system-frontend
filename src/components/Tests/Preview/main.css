@@ -1,0 +1,10 @@
+.preview-wrapper {
+  padding: 10px 15px; }
+  .preview-wrapper .list-of-points .bold {
+    font-weight: 800; }
+  .preview-wrapper .controls {
+    width: 60%;
+    text-align: center; }
+    .preview-wrapper .controls button {
+      width: 100%;
+      margin-left: 15px; }

@@ -11,6 +11,8 @@ import adminSubjects from './admin/subjects';
 import adminGroups from './admin/groups';
 import adminUsers from './admin/users';
 import adminCourses from './admin/courses';
+import adminTests from './admin/tests';
+import adminQuestions from './admin/questions';
 import { reducer as formReducer } from 'redux-form';
 
 const rootReducer = combineReducers({
@@ -26,7 +28,9 @@ const rootReducer = combineReducers({
     adminUsers: adminUsers,
     adminCourses: adminCourses,
     adminLearningSemesters: adminLearningSemesters,
-    admin: admin,
+    adminTests: adminTests,
+    adminQuestions: adminQuestions,
+    admin: admin
 });
 
 export default rootReducer;

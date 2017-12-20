@@ -2,7 +2,6 @@ import { goBack } from 'react-router-redux';
 
 import parameters from '../../../config/parameters';
 import endpoints from '../../../config/endpoints';
-
 import request from '../../utils/request';
 import {
     GET_USERS,

@@ -1,15 +1,23 @@
-.task-wrapper .body {
-  display: flex; }
-  .task-wrapper .body .content {
-    padding: 10px;
-    flex: 2 1; }
-  .task-wrapper .body .info {
-    padding: 10px;
-    flex: 1 1;
-    display: flex;
-    flex-direction: column; }
-    .task-wrapper .body .info .item {
+.task-wrapper {
+  padding: 10px 15px; }
+  .task-wrapper .body {
+    display: flex; }
+    .task-wrapper .body .content {
+      padding: 10px;
+      flex: 2 1; }
+    .task-wrapper .body .info {
+      padding: 10px;
+      flex: 1 1;
       display: flex;
-      margin: 5px 0; }
-      .task-wrapper .body .info .item div {
-        flex: 1 1; }
+      flex-direction: column; }
+      .task-wrapper .body .info .item {
+        display: flex;
+        margin: 5px 0; }
+        .task-wrapper .body .info .item div {
+          flex: 1 1; }
+        .task-wrapper .body .info .item.test a, .task-wrapper .body .info .item.teacher a {
+          color: #009688;
+          text-decoration: none;
+          font-weight: 800; }
+          .task-wrapper .body .info .item.test a:hover, .task-wrapper .body .info .item.teacher a:hover {
+            text-decoration: underline; }

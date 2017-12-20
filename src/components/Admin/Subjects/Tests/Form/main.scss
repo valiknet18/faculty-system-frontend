@@ -1,0 +1,18 @@
+.fields {
+  display: flex;
+  flex-wrap: wrap;
+
+  .form-group {
+    flex: 1 1 35%;
+    margin: 0 15px;
+
+    > div {
+      width: 100%;
+    }
+  }
+}
+
+.controls {
+  margin: 15px;
+  text-align: right;
+}

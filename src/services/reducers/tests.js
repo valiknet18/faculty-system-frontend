@@ -61,7 +61,7 @@ export default function tests(state = initialState, action) {
             });
 
         case SET_TIME_LEFT:
-            let test = Crypto.descrypt();
+            let test = Crypto.decrypt();
 
             test = Object.assign({}, test, {
                 left: action.left,

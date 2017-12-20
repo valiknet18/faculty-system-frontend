@@ -108,36 +108,42 @@ export function startTest() {
 
 export function getTest(test) {
     return async (dispatch, getState) => {
-        console.log(getState());
-
-        const SECONDS = 2;
-
         if (localStorage.getItem(Crypto.KEY)) {
-            let test = Crypto.descrypt();
-            let left = test.left;
+            const test = Crypto.decrypt();
 
-            const interval = setInterval(() => {
-                if (test.total <= left) {
-                    clearInterval(interval);
-
-                    let test = Crypto.descrypt();
-
-                    dispatch(completeTest(test.id, test.questions));
-                } else {
-                    left += SECONDS;
-
-                    dispatch({
-                        type: SET_TIME_LEFT,
-                        left: left,
-                    });
-                }
-            }, SECONDS * 1000);
+            dispatch(setTimeLeft());
 
             return dispatch({
                 type: GET_TEST,
                 test: test,
             });
         }
+    }
+}
+
+export function setTimeLeft() {
+    return async (dispatch) => {
+        const test = Crypto.decrypt();
+        const SECONDS = 2;
+
+        let left = test.left;
+
+        setTimeout(() => {
+            if (test.total <= left) {
+                let test = Crypto.decrypt();
+
+                dispatch(completeTest(test.id, test.questions));
+            } else {
+                left += SECONDS;
+
+                dispatch({
+                    type: SET_TIME_LEFT,
+                    left: left,
+                });
+
+                dispatch(setTimeLeft());
+            }
+        }, SECONDS * 1000);
     }
 }
 

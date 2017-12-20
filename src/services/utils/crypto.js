@@ -10,7 +10,7 @@ export default class Crypto {
         localStorage.setItem(Crypto.KEY, ciphertext.toString());
     }
 
-    static descrypt() {
+    static decrypt() {
         let ciphertext = localStorage.getItem(Crypto.KEY);
 
         if (!ciphertext) {
